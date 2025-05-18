@@ -17,6 +17,7 @@ const Body = () => {
         delete filteredData[0];
         delete filteredData[1];
         delete filteredData[2];
+        console.log(filteredData)
         setrestaurantData(filteredData)
         setsearchContent(filteredData)
     }
@@ -64,7 +65,7 @@ const Body = () => {
                 </div>
                 <div className='restro-container'>
                     {
-                        searchContent.map(resData => <RestaurantCards key={resData?.card?.card?.info?.cloudinaryImageId} resData={resData} />)
+                        searchContent.map(resData => <RestaurantCards key={resData?.card?.card?.info?.id} resData={resData} />)
                     }
                 </div>
             </div>

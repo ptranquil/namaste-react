@@ -16,6 +16,7 @@
 
 body {
   font-family: 'Gilroy', sans-serif;
+  margin: 0px
 }
 
 #heading{
@@ -25,12 +26,14 @@ body {
 .header{
     display: flex;
     justify-content: space-between ;
-    border: 1px solid black;
-    border-radius: 10px;
+    /* border: 1px solid black; */
+    /* border-radius: 10px; */
+    background-color: #ecdddd;
 }
 
 .logo{
     width: 100px;
+    margin: 0px 20px;
 }
 
 .nav-items{
@@ -146,4 +149,14 @@ body {
 .search-container{
     display: flex;
     justify-content: space-between;
+}
+
+button{
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f2cfcf;
+    font-weight: bold;
+    font-size: 16px;
 }
