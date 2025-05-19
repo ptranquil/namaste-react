@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { RestaurantRawData, SWIGGY_URL } from "../utils/constant"
 import RestaurantCards from "./RestaurantCards";
 import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
+import { Link } from "react-router-dom";
 
 const Body = () => {
     // const [restaurantData, setrestaurantData] = useState(RestaurantRawData);
@@ -65,7 +66,9 @@ const Body = () => {
                 </div>
                 <div className='restro-container'>
                     {
-                        searchContent.map(resData => <RestaurantCards key={resData?.card?.card?.info?.id} resData={resData} />)
+                        searchContent.map(resData => (
+                            <Link style={{ textDecoration: 'none' }} key={resData?.card?.card?.info?.id} to={"/restaurant/" + resData?.card?.card?.info?.id}><RestaurantCards key={resData?.card?.card?.info?.id} resData={resData} /></Link>
+                        ))
                     }
                 </div>
             </div>

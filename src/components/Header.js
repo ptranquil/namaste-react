@@ -1,18 +1,20 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import {LOGO_URL} from "../utils/constant"
 
 const Header = () => {
     const [login, setLogin] = useState(true)
     return (
         <div className="header">
             <div className="logo-container">
-                <img className='logo' src="https://png.pngtree.com/png-vector/20230212/ourmid/pngtree-restaurant-logo-design-png-image_6594084.png"></img>
+                <Link to="/"><img className='logo' src={LOGO_URL}></img></Link>
             </div>
             <div className="nav-items">
                 <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Cart</li>
-                    <li>Contact Us</li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="about-us">About Us</Link></li>
+                    <li><Link to="cart">Cart</Link></li>
+                    <li><Link to="contact-us">Contact Us</Link></li>
                     <li><button onClick={(prev) => {
                         console.log(prev)
                         setLogin(!login)
