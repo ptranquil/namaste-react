@@ -8,19 +8,19 @@ const Header = () => {
 
     const isOnline = useOnlineStatus();
     return (
-        <div className="header">
+        <div className="flex justify-between items-center bg-pink-50 drop-shadow-black">
             <div className="logo-container">
-                <Link to="/"><img className='logo' src={LOGO_URL}></img></Link>
+                <Link to="/"><img className='w-30' src={LOGO_URL}></img></Link>
             </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Status : {isOnline ? "🟢" : "🔴"}</li>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="about-us">About Us</Link></li>
-                    <li><Link to="cart">Cart</Link></li>
-                    <li><Link to="grocery">Grocery</Link></li>
-                    <li><Link to="contact-us">Contact Us</Link></li>
-                    <li><button onClick={(prev) => {
+            <div>
+                <ul className="flex font-medium">
+                    <li className="pr-10">Status : {isOnline ? "🟢" : "🔴"}</li>
+                    <li className="pr-10"><Link to="/">Home</Link></li>
+                    <li className="pr-10"><Link to="about-us">About Us</Link></li>
+                    <li className="pr-10"><Link to="cart">Cart</Link></li>
+                    <li className="pr-10"><Link to="grocery">Grocery</Link></li>
+                    <li className="pr-10"><Link to="contact-us">Contact Us</Link></li>
+                    <li className="pr-10"><button onClick={(prev) => {
                         console.log(prev)
                         setLogin(!login)
                     }}>{login == true ? 'Login': 'Logout'}</button></li>

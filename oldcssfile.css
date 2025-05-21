@@ -1,54 +1,54 @@
 @font-face {
-  font-family: 'Gilroy';
-  src: url('/fonts/Gilroy-Regular.ttf') format('truetype'),
-       url('/fonts/Gilroy-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'Gilroy';
+    src: url('/fonts/Gilroy-Regular.ttf') format('truetype'),
+        url('/fonts/Gilroy-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Gilroy';
-  src: url('/fonts/Gilroy-Bold.ttf') format('truetype'),
-       url('/fonts/Gilroy-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
+    font-family: 'Gilroy';
+    src: url('/fonts/Gilroy-Bold.ttf') format('truetype'),
+        url('/fonts/Gilroy-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
 }
 
 body {
-  font-family: 'Gilroy', sans-serif;
-  margin: 0px
+    font-family: 'Gilroy', sans-serif;
+    margin: 0px
 }
 
-#heading{
+#heading {
     color: red;
 }
 
-.header{
+.header {
     display: flex;
-    justify-content: space-between ;
+    justify-content: space-between;
     /* border: 1px solid black; */
     /* border-radius: 10px; */
     background-color: #ecdddd;
 }
 
-.logo{
+.logo {
     width: 100px;
     margin: 0px 20px;
 }
 
-.nav-items{
+.nav-items {
     display: flex;
     align-items: center;
     /* margin-top: 20px; */
 }
 
-.nav-items > ul{
+.nav-items>ul {
     font-weight: 600;
     display: flex;
     list-style-type: none;
 }
 
-.nav-items > ul > li{
+.nav-items>ul>li {
     padding: 0px 20px;
 }
 
@@ -96,9 +96,10 @@ body {
     object-fit: cover;
 }
 
-a{
+a {
     text-decoration: none;
 }
+
 /* Restaurant Details */
 .resto-details {
     padding: 15px;
@@ -123,9 +124,12 @@ a{
     color: rgb(2 6 12 / 60%);
     font-weight: 500;
     font-size: 16px;
-    white-space: nowrap;         /* Prevent text from wrapping */
-    overflow: hidden;            /* Hide overflowed text */
-    text-overflow: ellipsis;     /* Add ... at the end */
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+    overflow: hidden;
+    /* Hide overflowed text */
+    text-overflow: ellipsis;
+    /* Add ... at the end */
 }
 
 .resto-details h4:last-of-type {
@@ -136,7 +140,7 @@ a{
 
 
 /** Search Container */
-.search-container{
+.search-container {
     display: flex;
     /* text-align: center; */
     align-items: center;
@@ -144,17 +148,17 @@ a{
     margin: 10px 10px;
 }
 
-.shimmer-container{
+.shimmer-container {
     display: flex;
     flex-wrap: wrap;
 }
 
-.search-container{
+.search-container {
     display: flex;
     justify-content: space-between;
 }
 
-button{
+button {
     padding: 5px 10px;
     margin-left: 10px;
     border-radius: 5px;
@@ -162,4 +166,15 @@ button{
     background-color: #f2cfcf;
     font-weight: bold;
     font-size: 16px;
+}
+
+.RestaurantItemcard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.RestaurantItemcard-image > img {
+    border-radius: 8px;
+    zoom: 150%;
 }
