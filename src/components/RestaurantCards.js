@@ -1,7 +1,7 @@
 import { IMAGE_URL } from "../utils/constant";
 
 const RestaurantCards = (props) => {
-    const cardDetails = props?.resData?.card?.card?.info;
+    const cardDetails = props?.resData?.info;
     return (
         <div className='restocards'>
             <div className='resto-image-holder'>

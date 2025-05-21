@@ -1,32 +1,15 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
-import { RESTAURANT_DETAILS_URL } from "../utils/constant";
+import userRestaurantMenu from "../utils/useRestaurantMenu";
 
-const RestaurantDetails = () => {
-
-    const [resDetails, setresDetails] = useState("");
-
+const RestaurantMenu = () => {
     const {resId} = useParams();
+    const resDetails = userRestaurantMenu(resId);
 
-    const fetchResDetails = async () => {
-        const data = await fetch(RESTAURANT_DETAILS_URL+resId);
-        const json = await data.json();
-        // console.log(json?.data?.cards)
-        setresDetails(json?.data)
-        // const cardItems = json?.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card;
-        // const vegItems = cardItems.itemCards || cardItems?.categories[0]?.itemCards;
-        // setresDetails(vegItems)
-    }
-    useEffect(() => {
-        fetchResDetails()
-    },[])
-
-    if(resDetails.length === 0){
+    if(resDetails == null){
         return <ShimmerRestaurantCard />
     }
 
-    // const restrodetails = resDetails.cards.cards[0];
     console.log(resDetails?.cards[2]?.card?.card?.info)
     const {name, cuisines} = resDetails?.cards[2]?.card?.card?.info;
     const cardItems = resDetails.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card;
@@ -46,4 +29,4 @@ const RestaurantDetails = () => {
     )
 }
 
-export default RestaurantDetails;
+export default RestaurantMenu;
