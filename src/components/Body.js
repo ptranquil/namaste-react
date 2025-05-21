@@ -53,7 +53,7 @@ const Body = () => {
                             setfilterSearch(e.target.value)
                         }}></input>
                         <button onClick={() => {
-                            const data = searchContent.filter(temp => temp?.card?.card?.info?.name.includes(filterSearch))
+                            const data = searchContent.filter(temp => temp?.info?.name.includes(filterSearch))
                             setsearchContent(data)
                         }}>Search</button>
                         <button onClick={() => {
