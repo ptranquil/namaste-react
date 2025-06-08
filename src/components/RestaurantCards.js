@@ -1,4 +1,4 @@
-import { IMAGE_URL, RestaurantRawData } from "../utils/constant";
+import { IMAGE_URL } from "../utils/constant";
 
 export const RestaurantCards = ({ resData }) => {
     const cardDetails = resData?.info;
@@ -22,12 +22,12 @@ export const RestaurantCards = ({ resData }) => {
     );
 };
 
-export const RestaurantWithCards = (props) => {
-    return () => {
+export const RestaurantWithPromoted = (RestaurantCards) => {
+    return (props) => {
         return(
             <>
-                <label>Promoted</label>
-                <RestaurantRawData  {...props} />
+                <label className="absolute bg-black text-white p-1 px-2 rounded-lg">Promoted</label>
+                <RestaurantCards {...props} />
             </>
         )
     }

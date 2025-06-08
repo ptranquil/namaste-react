@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import {LOGO_URL} from "../utils/constant"
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/userContext";
 
 const Header = () => {
     const [login, setLogin] = useState(true)
+
+    const {loggedInUser} = useContext(UserContext)
 
     const isOnline = useOnlineStatus();
     return (
@@ -14,16 +17,16 @@ const Header = () => {
             </div>
             <div>
                 <ul className="flex font-medium">
-                    <li className="pr-10">Status : {isOnline ? "🟢" : "🔴"}</li>
-                    <li className="pr-10"><Link to="/">Home</Link></li>
-                    <li className="pr-10"><Link to="about-us">About Us</Link></li>
-                    <li className="pr-10"><Link to="cart">Cart</Link></li>
-                    <li className="pr-10"><Link to="grocery">Grocery</Link></li>
-                    <li className="pr-10"><Link to="contact-us">Contact Us</Link></li>
-                    <li className="pr-10"><button onClick={(prev) => {
-                        console.log(prev)
+                    <li className="pr-10 font-bold">Status : {isOnline ? "🟢" : "🔴"}</li>
+                    <li className="pr-10 font-bold"><Link to="/">Home</Link></li>
+                    <li className="pr-10 font-bold"><Link to="about-us">About Us</Link></li>
+                    <li className="pr-10 font-bold"><Link to="cart">Cart</Link></li>
+                    <li className="pr-10 font-bold"><Link to="grocery">Grocery</Link></li>
+                    <li className="pr-10 font-bold"><Link to="contact-us">Contact Us</Link></li>
+                    <li className="pr-10 font-bold"><button onClick={(prev) => {
                         setLogin(!login)
                     }}>{login == true ? 'Login': 'Logout'}</button></li>
+                    <li className="pr-10 font-bold">{loggedInUser}</li>
                 </ul>
             </div>
         </div>

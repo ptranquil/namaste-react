@@ -1,13 +1,6 @@
-// const About = () => {
-// return (
-//     <div>
-//         <h1>About us</h1>
-//     </div>
-// )
-// }
-
 import React from "react";
 import Child from "./Child";
+import UserContext from "../utils/userContext";
 
 class About extends React.Component {
 
@@ -36,6 +29,10 @@ class About extends React.Component {
         const {count} = this.state;
         return (
             <div>
+                <UserContext.Consumer>
+                    {/* {(data) => console.log(data)} */}
+                    {({loggedInUser}) => <h1>{loggedInUser}</h1>}
+                </UserContext.Consumer>
                 <h1>About us: {count}</h1>
                 <button onClick={() => {
                     this.setState({

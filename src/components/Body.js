@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { RestaurantRawData, SWIGGY_URL } from "../utils/constant"
-import { RestaurantCards } from "./RestaurantCards";
+import { RestaurantCards, RestaurantWithPromoted } from "./RestaurantCards";
 import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -11,7 +11,6 @@ const Body = () => {
     const [restaurantData, setrestaurantData] = useState([]);
     const [searchContent, setsearchContent] = useState([])
     const [filterSearch, setfilterSearch] = useState("")
-    // console.log(searchContent)
 
     const fetchDetails = async () => {
         const data = await fetch(SWIGGY_URL);
@@ -21,6 +20,8 @@ const Body = () => {
         setrestaurantData(filteredData)
         setsearchContent(filteredData)
     }
+
+    const RestaurantDataPromoted = RestaurantWithPromoted(RestaurantCards);
 
     useEffect(() => {
         fetchDetails();
@@ -101,7 +102,9 @@ const Body = () => {
                             to={"/restaurant/" + resData?.info?.id}
                             className="text-inherit no-underline"
                         >
-                            <RestaurantCards resData={resData} />
+                            {
+                                resData?.info?.avgRating >= 4.5 ? <RestaurantDataPromoted resData={resData} /> : <RestaurantCards resData={resData} />
+                            }
                         </Link>
                     ))}
                 </div>
