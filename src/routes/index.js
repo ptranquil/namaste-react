@@ -5,7 +5,7 @@ import About from "../components/About";
 import Contact from "../components/Contact";
 import ErrorPage from "../components/ErrorPage";
 import Body from "../components/Body";
-import RestaurantMenu from "../components/RestaurantMenu";
+import RestaurantMenu from "../components/Restaurant/RestaurantMenu";
 // import { Grocery } from "../components/Grocery";
 
 const Grocery = lazy(() => import("../components/Grocery"))

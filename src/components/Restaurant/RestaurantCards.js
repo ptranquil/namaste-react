@@ -1,4 +1,4 @@
-import { IMAGE_URL } from "../utils/constant";
+import { IMAGE_URL } from "../../utils/constant";
 
 export const RestaurantCards = ({ resData }) => {
     const cardDetails = resData?.info;

@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { RestaurantRawData, SWIGGY_URL } from "../utils/constant"
-import { RestaurantCards, RestaurantWithPromoted } from "./RestaurantCards";
-import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
+import { RestaurantCards, RestaurantWithPromoted } from "./Restaurant/RestaurantCards";
+import ShimmerRestaurantCard from "./Restaurant/ShimmerRestaurantCard";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/userContext";
 
 const Body = () => {
     // const [restaurantData, setrestaurantData] = useState(RestaurantRawData);
@@ -22,6 +23,7 @@ const Body = () => {
     }
 
     const RestaurantDataPromoted = RestaurantWithPromoted(RestaurantCards);
+    const {loggedInUser,setUserName} = useContext(UserContext)
 
     useEffect(() => {
         fetchDetails();
@@ -79,6 +81,14 @@ const Body = () => {
                         >
                             Clear
                         </button>
+                         <input
+                            className="border border-black rounded-lg p-2 w-64"
+                            type="text"
+                            value={loggedInUser}
+                            onChange={(e) => setUserName(e.target.value)}
+                            placeholder="Enter Username..."
+                            // onChange={(e) => setfilterSearch(e.target.value)}
+                        />
                     </div>
                     <div>
                         <button

@@ -1,4 +1,4 @@
-import '../style/shimmer.css';
+import '../../style/shimmer.css';
 
 const ShimmerRestaurantCard = () => {
   return (
