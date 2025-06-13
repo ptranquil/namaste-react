@@ -20,6 +20,11 @@ const RestaurantMenu = () => {
         );
     };
 
+    /** To hide, if the same dropdown click again */
+    const setCurrentActiveIndex = (index) => {
+        return index == activeIndex ? setactiveIndex(-1) : setactiveIndex(index)
+    }
+
     if (resDetails == null) {
         return <ShimmerWrapper card={10} />
     }
@@ -41,7 +46,7 @@ const RestaurantMenu = () => {
                         key={index} 
                         data={category?.card?.card}
                         showAccordion={index === activeIndex ? true: false}
-                        setCurrentAccordion={() => setactiveIndex(index)}
+                        setCurrentAccordion={() => setCurrentActiveIndex(index)}
                     />
                 ))
             }
