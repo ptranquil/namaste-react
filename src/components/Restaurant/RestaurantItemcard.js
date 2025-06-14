@@ -7,7 +7,6 @@ const RestaurantItemcard = ({ data }) => {
     const dispatch = useDispatch()
 
     const handleClick = (data) => {
-        console.log(data)
         dispatch(addItem(data))
     }
 

@@ -5,6 +5,8 @@ import ShimmerRestaurantCard from "./Restaurant/ShimmerRestaurantCard";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/userContext";
+import { useDispatch, useSelector } from "react-redux";
+import { addResturantData } from "../store/slices/restaurantSlice";
 
 const Body = () => {
     // const [restaurantData, setrestaurantData] = useState(RestaurantRawData);
@@ -13,13 +15,26 @@ const Body = () => {
     const [searchContent, setsearchContent] = useState([])
     const [filterSearch, setfilterSearch] = useState("")
 
+    const restaurants = useSelector((store) => store.restaurant.restaurantData);
+    const dispatch  = useDispatch();
+    
     const fetchDetails = async () => {
-        const data = await fetch(SWIGGY_URL);
-        const json = await data.json();
-        // const filteredData = json?.data?.cards?.filter(cards => cards.card.card["@type"] = 'type.googleapis.com/swiggy.presentation.food.v2.Restaurant')
-        const filteredData = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-        setrestaurantData(filteredData)
-        setsearchContent(filteredData)
+
+        let fetchedData = null;
+
+        if(restaurants && restaurants?.length == 0){
+            const data = await fetch(SWIGGY_URL);
+            const json = await data.json();
+            // const filteredData = json?.data?.cards?.filter(cards => cards.card.card["@type"] = 'type.googleapis.com/swiggy.presentation.food.v2.Restaurant')
+            fetchedData = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+            /** Store it in store */
+            dispatch (addResturantData(fetchedData));
+            // dispatch(setrestaurantData(fetchedData));
+        } else {
+            fetchedData = restaurants
+        }
+        setrestaurantData(fetchedData)
+        setsearchContent(fetchedData)
     }
 
     const RestaurantDataPromoted = RestaurantWithPromoted(RestaurantCards);

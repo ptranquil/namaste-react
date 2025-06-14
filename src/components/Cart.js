@@ -22,7 +22,14 @@ const Cart = () => {
             </div>
             <div className="p-5 max-w-4xl mx-auto text-center">
                 {items && items.length > 0 
-                    ? items.map((item) => <RestaurantItemcard key={item.id} data={item} />) 
+                    ? items.map((item, index) => (
+                        <>
+                            <div  key={index}>
+                                <button className="w-2 p-1 font-bold font-stretch-75% font-red">-</button>
+                            </div>
+                            <RestaurantItemcard key={item.id} data={item} />
+                        </>
+                )) 
                     : <h1 className="font-bold">Please add items to the cart</h1>}
             </div>
         </>
