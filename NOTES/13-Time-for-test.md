@@ -2,7 +2,7 @@
     1. Unit Testing
         - Testing a component in isolation
     2. Integration Testing
-        - Testing the feature where multiple components are inbvolved
+        - Testing the feature where multiple components are involved
     3. End to End Testing (e2e)
         - Testing the whole application at once
 
@@ -22,7 +22,7 @@
     - What we did above is configuration of babel with jest
     - Now here a conflict will arise. i.e. when we install the above dependencies of parcel
     it will create a conflict with the parcels internal babel configuration with the current configuration present in babel.config.js
-    -  So to avoid the conflict and make the parcel to use the babel.config.js we need to create a newfile .parcelrc (Configure the parcel configuration) and add the below code to disable babel transpilation
+    -  So to avoid the conflict and make the parcel to accomodate parcel along with jest & to use the babel.config.js we need to create a newfile .parcelrc (Configure the parcel configuration) and add the below code to disable babel transpilation
         {
             "extends": "@parcel/config-default",
             "transformers": {
@@ -37,3 +37,21 @@
     - Command: npx create-jest
     - Install jest environment js-dom (which provide a browser like environment to jest to run test cases and provides all capability of browser)
         Command: npm i --save-dev jest-environment-jsdom
+
+# Writing test cases
+    - For that we need to install @babel/preset-react as parcel is a transpiler it helps to conver our code from one form into another
+    - the preset/react library helps testing library to conver jsx code to html so that it cam ready properly
+
+
+
+Steps to setting up the testing in our App
+    - Installed the react testing library
+    - Installed jest
+    - Installed the babel dependencies (Parcel uses babel BTS)
+    - Configure babel
+    - Configure parcel config file (.parcelrc) to disable default babel transpilation and use our own file (babel.config.js)
+    - jest congiguration
+    - Install jsdom library
+    - Install @babel/preset-react to make jsx work in test cases
+    - Include @babel/preset-react inside babel config
+    - Include @testing-library/jest-dom

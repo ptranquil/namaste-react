@@ -68,8 +68,8 @@
         e.g. state.item.push[{...}]
     - Here when we mutate the state, Redux behind the scene, creates a new value and does all the thing which used to be done earlier in vanilla Redux and return a new copy of the state which is now not required for the developer to do
 
-***Redux BTS use Immer JS library to do this***
-        1. Finding the difference between the original state, the mutated state and give the new state which is a mutated state which is a new copy of the state 
+# Redux BTS use Immer JS library to do this
+    - Finding the difference between the original state, the mutated state and give the new state which is a mutated state which is a new copy of the state 
 
     - If we directly mutate the state then it changes its value locally (passbyvalue and passbyreference concept)
     - Thats why it is recommended to mutate the state
